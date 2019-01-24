@@ -19,7 +19,7 @@
   apt:
     name: apt-transport-https
     state: present
-    update_cache: yes
+    update_cache: true
   register: result
   until: result is success
   retries: 5
@@ -29,7 +29,7 @@
   apt:
     name: "unifi={{ unifi_version }}"
     state: present
-    update_cache: yes
+    update_cache: true
   register: result
   until: result is success
   retries: 5
