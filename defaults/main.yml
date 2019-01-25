@@ -1,3 +1,4 @@
 ---
 
-unifi_version: 5.6.40
+unifi_version: '5.6.40'
+unifi_mongodb_version: '3.4'

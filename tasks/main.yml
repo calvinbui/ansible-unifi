@@ -1,11 +1,26 @@
 ---
 
-- name: Add Unifi Source
+- name: Add MongoDB {{ unifi_mongodb_version }} GPG Key
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 0C49F3730359A14518585931BC711F9BA15703C6
+    state: present
+  register: result
+  until: result is success
+  retries: 5
+  delay: 5
+
+- name: Add MongoDB {{ unifi_mongodb_version }} source
+  template:
+    src: mongodb-org.list.j2
+    dest: "/etc/apt/sources.list.d/mongodb-org-{{ unifi_mongodb_version }}.list"
+
+- name: Add Unifi {{ unifi_version }} Source
   template:
     src: 100-ubnt-unifi.list.j2
     dest: /etc/apt/sources.list.d/100-ubnt-unifi.list
 
-- name: Add Unifi GPG Key
+- name: Add Unifi {{ unifi_version }} GPG Key
   apt_key:
     keyserver: keyserver.ubuntu.com
     id: 06E85760C0A52C50
@@ -15,19 +30,9 @@
   retries: 5
   delay: 5
 
-- name: Install dependencies
-  apt:
-    name: apt-transport-https
-    state: present
-    update_cache: true
-  register: result
-  until: result is success
-  retries: 5
-  delay: 5
-
 - name: Install Unifi
   apt:
-    name: "unifi={{ unifi_version }}"
+    name: "unifi={{ unifi_version }}*"
     state: present
     update_cache: true
   register: result

@@ -4,6 +4,8 @@
 
 UniFi SDN Controller for Debian/Ubuntu within a Docker container. Follows the official guide from [Ubiquiti](https://help.ubnt.com/hc/en-us/articles/220066768-UniFi-How-to-Install-Update-via-APT-on-Debian-or-Ubuntu).
 
+This role also adds the soruces for MongoDB 3.4 as it's not available on 18.04.
+
 ##  Requirements
 
 N/A
@@ -14,6 +16,7 @@ N/A
 
 ## Dependencies
 
+N/A
 
 ## Example Playbook
 
