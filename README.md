@@ -1,4 +1,7 @@
 [![Build Status](https://travis-ci.com/calvinbui/ansible-unifi.svg?branch=master)](https://travis-ci.com/calvinbui/ansible-unifi)
+![GitHub release](https://img.shields.io/github/release/calvinbui/ansible-unifi.svg)
+![Ansible Quality Score](https://img.shields.io/ansible/quality/36513.svg)
+![Ansible Role](https://img.shields.io/ansible/role/d/36513.svg)
 
 # Ansible Unifi
 
